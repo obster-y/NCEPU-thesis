@@ -127,7 +127,7 @@ xelatex main_singlefile.tex
 
 ### 算法描述
 
-算法描述使用`algorithm`环境，具体写法请参考范例`main.tex`或`chapter\c3.tex`。模板类自动加载`algorithm2e`宏包，详细的用法请参考[algorithm2e宏包文档](https://www.ctan.org/pkg/algorithm2e)。
+算法描述使用`algorithm`环境，具体写法请参考范例`main_singlefile.tex`或`Main_Spine\c3.tex`。模板类自动加载`algorithm2e`宏包，详细的用法请参考[algorithm2e宏包文档](https://www.ctan.org/pkg/algorithm2e)。
 
 ### 枚举环境和脚注
 
@@ -135,10 +135,10 @@ xelatex main_singlefile.tex
 
 ### 便捷清空临时文件脚本
 
-本项目提供了一个清除临时文件的shell脚本，可以清楚临时文件。
+本项目提供了一个清除临时文件的shell脚本，可以清除临时文件。
 
 ### 其他命令
-模版提供一些有用的命令方便论文写作，其中包含一些常见的汉语字符：
+模版提供一些有用的命令方便论文写作，其中包含一些常见的中文字符：
 
 | 命令名称 | 字符 | Unicode 编号|
 |---|---|---|
