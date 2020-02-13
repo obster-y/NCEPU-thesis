@@ -1,0 +1,56 @@
+% This is a template of mutiple files.
+
+\documentclass[bachelor]{NCEPU-thesis}
+
+%fill the each item to generate cover
+\title{基尔霍夫定律的研究基尔霍夫定律的研究基尔霍夫定律的}{test}
+\author{姓名1}{Test1}
+\advisor{姓名2\chinesespace 副教授}{Vice Dr. Name 2}
+\school{电力工程系}{School of Electrical Engineering}
+\major{电气工程及其自动化(卓工)}{EE}
+\studentnumber{201601XXXXXX}
+\adminclass{电气16XX班}{}
+
+% if you require another packages, list them here
+
+\begin{document}
+
+% generate cover: for Beijing campus style, use \makecoverpk, 
+% for Baoding campus style, use \makecoverbd
+
+\makecoverbd
+\makecoverpk
+% The folders Main_Spine/ and Main_MISC/ have the related files
+
+% input abstract
+\input{Main_MISC/chinese_abstract}
+\input{Main_MISC/english_abstract}
+
+% generate contents
+\thesistableofcontents
+
+% thesis contents
+\input{Main_Spine/c1}
+\input{Main_Spine/c2}
+\input{Main_Spine/c3}
+\input{Main_Spine/c4}
+\input{Main_Spine/c5}
+
+
+% MISC files
+
+% generate reference, the database should put in the "Reference/" directory
+
+\bibliography{Reference/reference}
+\nocite{*}
+
+% input appendix and acknowledgement files
+\input{Main_MISC/appendix}
+\input{Main_MISC/acknowledgement}
+
+
+% input translation files
+\input{Main_MISC/translate_original}
+\input{Main_MISC/translate_chinese}
+
+\end{document}
