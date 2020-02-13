@@ -3,7 +3,7 @@
 [![](https://img.shields.io/github/last-commit/obster-y/NCEPU-thesis)](https://github.com/obster-y/NCEPU-thesis)
 [![](https://img.shields.io/github/issues/obster-y/NCEPU-thesis)](https://github.com/obster-y/NCEPU-thesis/issues)
 
-此项目为非官方的华北电力大学学位论文的Latex模板(文档类)，能够方便，自动化的完成论文的写作，并且满足学校(北京及保定校部)的相关要求。本模板是基于王稳编写的[电子科技大学毕业论文模板](https://github.com/x-magus/ThesisUEST)修改并完善的。
+此项目为非官方的华北电力大学学位论文的Latex模板(文档类)，能够方便，自动化的完成论文的写作，并且满足学校(北京及保定校部)的相关要求。本模板是基于王稳编写的[电子科技大学毕业论文模板](https://github.com/x-magus/ThesisUESTC)修改并完善的。
 
 如果对模板有相关问题，请直接在github上提交issue，如果发现bug，欢迎提交pull request。
 
