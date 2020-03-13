@@ -48,7 +48,6 @@
 \RequirePackage{blindtext}
 \RequirePackage{upgreek}
 
-
 \ifwindows
   \setCJKmainfont[AutoFakeBold=true]{SimSun}
   \newCJKfontfamily{\heiti}{SimHei}
@@ -63,24 +62,20 @@
   \setCJKmainfont[AutoFakeBold=true]{Songti SC}
   \newCJKfontfamily{\heiti}{STHeiti}
   \newfontfamily{\heiti@letter}{STHeiti}
-   \newCJKfontfamily{\kaiti}[AutoFakeBold=true]{STKaiti}
-  \newfontfamily{\kaiti@letter}{STKaiti}
   \newCJKfontfamily{\songti}{Songti SC}
   \newfontfamily{\songti@letter}{Songti SC}
   \setallmainfonts{Times New Roman}
 \else
-  \setCJKmainfont[AutoFakeBold=true]{Thesis_Materials/Fonts/fzsong.ttf}
-  \newCJKfontfamily{\heiti}{Thesis_Materials/Fonts/fzhei.ttf}
-  \newfontfamily{\heiti@letter}{Thesis_Materials/Fonts/fzhei.ttf}  
-  \newCJKfontfamily{\kaiti}[AutoFakeBold=true]{Thesis_Materials/Fonts/STKAITI.ttf}
-  \newfontfamily{\kaiti@letter}{Thesis_Materials/Fonts/STKAITI.ttf}
-  \newCJKfontfamily{\songti}{Thesis_Materials/Fonts/fzsong.ttf}
-  \newfontfamily{\songti@letter}{Thesis_Materials/Fonts/fzsong.ttf}
+  \setCJKmainfont[AutoFakeBold=true]{fzsong.ttf}
+  \newCJKfontfamily{\heiti}{fzhei.ttf}
+  \newfontfamily{\heiti@letter}{fzhei.ttf}
+  \newCJKfontfamily{\songti}{fzsong.ttf}
+  \newfontfamily{\songti@letter}{fzsong.ttf}
   \setallmainfonts[
     BoldFont=timesbd.ttf,
     ItalicFont=timesi.ttf,
     BoldItalicFont=timesbi.ttf,
-  ]{Thesis_Materials/Fonts/times.ttf}
+  ]{times.ttf}
 \fi
 \fi
 
@@ -130,9 +125,9 @@
 \graphicspath{{./Figures/}}
 
 \RequirePackage[titles]{tocloft}
-\RequirePackage[labelformat=simple]{subcaption}
+\RequirePackage{subcaption}
 \captionsetup[sub]{font=small, belowskip=6pt}
-\renewcommand{\thesubfigure}{(\alph{subfigure})}
+\renewcommand{\thesubfigure}{\alph{subfigure}}
 \newcommand{\floatcontinue}{\end{figure}\clearpage\begin{figure}[tb]\ContinuedFloat}
 
 \urlstyle{rm}
@@ -587,7 +582,8 @@
 \setlength{\extrarowheight}{9pt}
 \pdfbookmark{封面}{cover}
 \begin{center}
- \includegraphics[height=2.6 cm]{Thesis_Materials/Univ_ICON.png}\\[1.5cm]
+
+    \includegraphics[height=2.6 cm]{Thesis_Materials/Univ_ICON.png}\\[1.5cm]
 
 \ifbachelor{\kaiti\fontsize{51pt}{51pt}\selectfont{\selectfont\bfseries 毕\ 业\ 设\ 计（论\ 文）} \\[2.7cm]}{\fontsize{42pt}{42pt}\selectfont\chinesebooktitle \\[2.7cm]}
 
