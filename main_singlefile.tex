@@ -58,8 +58,7 @@
 % generate contents
 \thesistableofcontents
 
-% thesis contents
-\chaptera{绪论}{绪论}
+% thesis contents\chapter{绪论}
 
 \section{研究工作的背景与意义}
 
@@ -125,13 +124,18 @@ f(\bm{x}^{i};\bm{w})\cdot f(\bm{x}^{j};\bm{w}),\text{otherwise},
 \section{考虑配电网不确定性的区间优化模型}
 
 如图\ref{picb}和图\ref{picc}所示分别给出了参数$E_0=\hat{x}$，$a_n=-\hat{z}$，$f_0=250MHz$，$f_w=50MHz$，$t_w=4.2\sigma$时，配电网中的光伏、电动汽车和负荷都具有一定程度的不确定性。为保证优化模型的鲁棒性，本文以区间数来描述配电网中的不确定量，并采用区间潮流进行计算。区间数的计算法可参见文献，区间潮流的具体算法参见文献。第时刻光伏发电系统有功出力区间。
+
 \begin{figure}[h]
-	\subfloat[]{
+	\begin{subfigure}[b]{0.5\linewidth}
 		\label{picb}
-		\includegraphics[width=7.3cm]{picb.pdf}}
-	\subfloat[]{
+		\includegraphics[width=7.3cm]{picb.pdf}
+        \caption{aa1}
+    \end{subfigure}
+	\begin{subfigure}[b]{0.5\linewidth}
 		\label{picc}
-		\includegraphics[width=6.41cm]{picc.pdf}}
+		\includegraphics[width=6.41cm]{picc.pdf}
+        \caption{aa2}
+    \end{subfigure}
 	\caption{电动汽车无序充电时各个时刻的充电功率。}
 	\label{fig1}
 \end{figure}
@@ -187,12 +191,16 @@ f(\bm{x}^{i};\bm{w})\cdot f(\bm{x}^{j};\bm{w}),\text{otherwise},
 \end{table}
 
 \begin{figure}[h]
-\subfloat[]{
+\begin{subfigure}[b]{0.5\linewidth}
 \label{picd}
-\includegraphics[width=6.77cm]{picd.pdf}}
-\subfloat[]{
+\includegraphics[width=6.77cm]{picd.pdf}
+\caption{aa1}
+\end{subfigure}
+\begin{subfigure}[b]{0.5\linewidth}
 \label{pice}
-\includegraphics[width=7.04cm]{pice.pdf}}
+\includegraphics[width=7.04cm]{pice.pdf}
+\caption{aa2}
+\end{subfigure}
 \label{fig2}
 \end{figure}
 

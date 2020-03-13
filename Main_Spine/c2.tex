@@ -46,17 +46,23 @@ f(\bm{x}^{i};\bm{w})\cdot f(\bm{x}^{j};\bm{w}),\text{otherwise},
 \subsubsection{特别提醒2}
 
 \section{考虑配电网不确定性的区间优化模型}
+
+如图\ref{picb}和图\ref{picc}所示分别给出了参数$E_0=\hat{x}$，$a_n=-\hat{z}$，$f_0=250MHz$，$f_w=50MHz$，$t_w=4.2\sigma$时，配电网中的光伏、电动汽车和负荷都具有一定程度的不确定性。为保证优化模型的鲁棒性，本文以区间数来描述配电网中的不确定量，并采用区间潮流进行计算。区间数的计算法可参见文献，区间潮流的具体算法参见文献。第时刻光伏发电系统有功出力区间。
+
 \begin{figure}[h]
-	\subfloat[]{
+	\begin{subfigure}[b]{0.5\linewidth}
 		\label{picb}
-		\includegraphics[width=7.3cm]{picb.pdf}}
-	\subfloat[]{
+		\includegraphics[width=7.3cm]{picb.pdf}
+        \caption{aa1}
+    \end{subfigure}
+	\begin{subfigure}[b]{0.5\linewidth}
 		\label{picc}
-		\includegraphics[width=6.41cm]{picc.pdf}}
+		\includegraphics[width=6.41cm]{picc.pdf}
+        \caption{aa2}
+    \end{subfigure}
 	\caption{电动汽车无序充电时各个时刻的充电功率。}
 	\label{fig1}
 \end{figure}
-如图\ref{picb}和图\ref{picc}所示分别给出了参数$E_0=\hat{x}$，$a_n=-\hat{z}$，$f_0=250MHz$，$f_w=50MHz$，$t_w=4.2\sigma$时，配电网中的光伏、电动汽车和负荷都具有一定程度的不确定性。为保证优化模型的鲁棒性，本文以区间数来描述配电网中的不确定量，并采用区间潮流进行计算。区间数的计算法可参见文献，区间潮流的具体算法参见文献。第时刻光伏发电系统有功出力区间。
 
 值得一提的是，当采用区间算法进行优化时，潮流计算所得的中间量（如节 电压、线路潮流），及最终得到的目标函数均为区间数。
 
