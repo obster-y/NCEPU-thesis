@@ -36,6 +36,7 @@
 \RequirePackage{setspace}
 \RequirePackage{multirow}
 \RequirePackage[tbtags]{amsmath}
+\RequirePackage{commath}
 \RequirePackage{amssymb}
 \RequirePackage{amsthm}
 \RequirePackage{lmodern}
