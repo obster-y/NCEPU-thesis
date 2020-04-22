@@ -107,8 +107,7 @@ FUNCTION {cap.no.address.en} 	{"[S.l.]"}
 FUNCTION {cap.no.address.zh} 	{"[出版地不详]"}
 FUNCTION {cap.no.publisher.en} 	{"[s.n.]"}
 FUNCTION {cap.no.publisher.zh} 	{"[出版者不详]"}
-%FUNCTION {cap.et.al.en} 		{", et~al"}
-FUNCTION {cap.et.al.en} 		{", 等"}
+FUNCTION {cap.et.al.en} 		{", et~al"}
 FUNCTION {cap.et.al.zh} 		{", 等"}
 FUNCTION {cap.translate.en} 	{"~trans"}
 FUNCTION {cap.translate.zh} 	{"译"}
