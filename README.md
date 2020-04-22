@@ -1,5 +1,5 @@
 # NCEPU-thesis 华北电力大学学位论文模板
-[![](https://img.shields.io/badge/license-LPPL-blue)](https://www.latex-project.org/lppl/)
+[![](https://img.shields.io/badge/license-GPL-blue)](https://www.latex-project.org/gpl/)
 [![](https://img.shields.io/github/last-commit/obster-y/NCEPU-thesis)](https://github.com/obster-y/NCEPU-thesis)
 [![](https://img.shields.io/github/issues/obster-y/NCEPU-thesis)](https://github.com/obster-y/NCEPU-thesis/issues)
 
