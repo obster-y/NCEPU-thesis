@@ -12,7 +12,7 @@ This project is an unofficial Latex template (document class) for North China El
 
 If you have any questions about the template, please submit an issue directly on github. If you find a bug, please submit a pull request.
 
-## 重大更新1.0.0 说明
+## 重大更新 1.0.0 说明
 - 由于学校要求文件的冲突，以及开发者的愚蠢(我)导致此次更新前的模板有较大的使用问题，此次更新修复了较多问题，请务必使用更新后的模板。
 - 此次更新对非本科模板没有进行修改。
 - 此次更新修复了章节标题、目录格式、页眉、空白页、参考文献、封面日期等众多问题，同时更新了演示文件。
