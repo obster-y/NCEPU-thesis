@@ -26,6 +26,7 @@ f_n(\bm{r})=
 \end{figure}
 
 公式统一用英文斜体书写，公式中有上标、下标、顶标、底标等时，必须层次清楚。公式应居中放置，公式前的“解”、“假设”等文字顶格写，公式末不加标点，公式的序号写在公式右侧的行末顶边线，并加圆括号。序号按章排，如“（1-1）”、“（2-1）”。公式换行书写时与等号对齐。
+
 公式2：
 \begin{equation}
 \label{latent_binary_variable}
@@ -37,7 +38,7 @@ f(\bm{x}^{i};\bm{w})\cdot f(\bm{x}^{j};\bm{w}),\text{otherwise},
 \end{cases}
 \end{equation}
 
-
+引用公式时应使用$\backslash$eqref 函数，用法和$\backslash$ref函数相同。
 
 \subsection{其他基函数}
 
@@ -47,18 +48,18 @@ f(\bm{x}^{i};\bm{w})\cdot f(\bm{x}^{j};\bm{w}),\text{otherwise},
 
 \section{考虑配电网不确定性的区间优化模型}
 
-如图\ref{picb}和图\ref{picc}所示分别给出了参数$E_0=\hat{x}$，$a_n=-\hat{z}$，$f_0=250MHz$，$f_w=50MHz$，$t_w=4.2\sigma$时，配电网中的光伏、电动汽车和负荷都具有一定程度的不确定性。为保证优化模型的鲁棒性，本文以区间数来描述配电网中的不确定量，并采用区间潮流进行计算。区间数的计算法可参见文献，区间潮流的具体算法参见文献。第时刻光伏发电系统有功出力区间。
+如图\ref{picb}和图\ref{picc}所示分别给出了参数$E_0=\hat{x}$，$a_n=-\hat{z}$，$f_0=\SI{250}{MHz}$，$f_w=\SI{50}{MHz}$，$t_w=4.2\sigma$时，配电网中的光伏、电动汽车和负荷都具有一定程度的不确定性。为保证优化模型的鲁棒性，本文以区间数来描述配电网中的不确定量，并采用区间潮流进行计算。区间数的计算法可参见文献，区间潮流的具体算法参见文献。第时刻光伏发电系统有功出力区间。
 
 \begin{figure}[h]
-	\begin{subfigure}[b]{0.5\linewidth}
-		\label{picb}
+	\begin{subfigure}[b]{0.49\linewidth}
 		\includegraphics[width=7.3cm]{picb.pdf}
-        \caption{aa1}
+        \subcaption{aa1}
+		\label{picb}
     \end{subfigure}
-	\begin{subfigure}[b]{0.5\linewidth}
-		\label{picc}
+	\begin{subfigure}[b]{0.49\linewidth}
 		\includegraphics[width=6.41cm]{picc.pdf}
-        \caption{aa2}
+        \subcaption{aa2}
+		\label{picc}
     \end{subfigure}
 	\caption{电动汽车无序充电时各个时刻的充电功率。}
 	\label{fig1}

@@ -18,7 +18,7 @@
 
 \ProvidesClass{NCEPU-thesis}
 
-\LoadClass[12pt, openany, twoside]{book}
+\LoadClass[12pt, openright, twoside]{book}
 
 \RequirePackage{ifxetex}
 \RequireXeTeX
@@ -42,12 +42,15 @@
 \RequirePackage{lmodern}
 \RequirePackage[nopostdot]{glossaries}
 \RequirePackage{mathspec}
+\RequirePackage{pdfpages}
+\RequirePackage{siunitx}
 
 \RequirePackage{xeCJK}
 \RequirePackage{ifplatform}
 
 \RequirePackage{blindtext}
 \RequirePackage{upgreek}
+\RequirePackage{pifont}
 
 \ifwindows
   \setCJKmainfont[AutoFakeBold=true]{SimSun}
@@ -84,6 +87,7 @@
 \newcommand{\bm}{\mathbf}
 
 \RequirePackage{zhnumber}
+\RequirePackage{datetime2}
 \RequirePackage{pifont}
 
 \bibliographystyle{Thesis_Materials/GBT7714-2005}
@@ -122,13 +126,14 @@
 \RequirePackage{everypage}
 \RequirePackage{ifoddpage}
 \RequirePackage{pdfpages}
+\RequirePackage{emptypage}
 
 \graphicspath{{./Figures/}}
 
 \RequirePackage[titles]{tocloft}
-\RequirePackage{subcaption}
+\RequirePackage[labelformat=simple]{subcaption}
 \captionsetup[sub]{font=small, belowskip=6pt}
-\renewcommand{\thesubfigure}{\alph{subfigure}}
+\renewcommand{\thesubfigure}{(\alph{subfigure})}
 \newcommand{\floatcontinue}{\end{figure}\clearpage\begin{figure}[tb]\ContinuedFloat}
 
 \urlstyle{rm}
@@ -152,7 +157,7 @@
 \titlespacing{\subsection}{0pt}{12pt}{6pt}
 \titlespacing{\subsubsection}{0pt}{12pt}{6pt}
 
-\renewcommand\thechapter{第\zhnumber{\arabic{chapter}}章}
+\renewcommand\thechapter{\arabic{chapter}}
 \renewcommand\thesection{\arabic{chapter}.\arabic{section}}
 
 \renewcommand{\theequation}{\arabic{chapter}-\arabic{equation}}
@@ -188,16 +193,17 @@
 
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{2}
+\RequirePackage{geometry}
 
 \titleformat{\chapter}[block]
-  {\centering\fontsize{18pt}{18pt}\selectfont\strong\thispagestyle{fancy}}{\thechapter}{7.5pt}{}
+  {\centering\fontsize{18pt}{18pt}\heiti\selectfont\strong\thispagestyle{fancy}}{\thechapter}{7.5pt}{}
 
 \titleformat{\section}[block]
-  {\fontsize{15pt}{15pt}\selectfont\strong}
+  {\fontsize{15pt}{15pt}\heiti\selectfont\strong}
   {\thesection}{7pt}{}
 
 \titleformat{\subsection}[block]
-  {\fontsize{14pt}{14pt}\selectfont\strong}
+  {\fontsize{14pt}{14pt}\heiti\selectfont\strong}
   {\thesubsection}{7pt}{}
 
 \titleformat{\subsubsection}[block]
@@ -212,11 +218,11 @@
 \renewcommand{\small}{\fontsize{10.5pt}{12.6pt}\selectfont}
 \renewcommand\footnotelayout{\fontsize{9}{11.7}\selectfont}
 
-\renewcommand{\thefootnote}{\ifcase\value{footnote}\or\ding{172}\or
-\ding{173}\or\ding{174}\or\ding{175}\or\ding{176}\or\ding{177}\or
-\ding{178}\or\ding{179}\or\ding{180\or\ding{181}}\fi}
-
-\renewcommand{\footnoterule}{\vfill\noindent\vspace{0.9mm}\hspace{27pt}\rule{5.05cm}{0.02cm}\vspace*{2.6pt}}
+%\renewcommand{\thefootnote}{\ifcase\value{footnote}\or\ding{172}\or
+%\ding{173}\or\ding{174}\or\ding{175}\or\ding{176}\or\ding{177}\or
+%\ding{178}\or\ding{179}\or\ding{180\or\ding{181}}\fi}
+%
+%\renewcommand{\footnoterule}{\vfill\noindent\vspace{0.9mm}\hspace{27pt}\rule{5.05cm}{0.02cm}\vspace*{2.6pt}}
 
 \def\@makefntext #1{
   \ifFN@hangfoot
@@ -259,13 +265,14 @@
 \newcommand\blankpage{%
   \newpage
   \null
-  \thispagestyle{empty}%
-  \addtocounter{pseudopage}{-1}%
+  \thispagestyle{empty}
+  %\addtocounter{pseudopage}{-1}%
   \newpage
 }
 
 
 \newenvironment{chineseabstract}{%
+  \standardhead
   \fancyfoot[CE,CO]{\fontsize{9pt}{10.8pt}\selectfont\Roman{pseudopage}}
   \pagenumbering{Roman}
   \ifchinesebook{
@@ -273,39 +280,46 @@
   }{
     \pdfbookmark{Chinese Abstract}{chineseabstract}
   }
-  \chapter*{\heiti{摘\chinesespace\chinesespace 要}}
+  \chaptera*{\heiti{摘\chinesespace\chinesespace 要}}
   \addcontentsline{toc}{chapter}{摘\hspace{12pt}要}
   \markboth{摘要}{摘要}
-  \thispagestyle{plain}
-}{\checkoddpage}
+}{\checkoddpage
+  \ifoddpage
+      \blankpage
+    \else
+      \newpage
+    \fi}
 
 \newcommand{\chinesekeyword}[1]{
   \vspace{\baselineskip}
   \noindent
-  \parbox[t]{48pt}{\textbf{关键词\chinesecolon}}
-  \parbox[t]{\linewidth - 50pt}{#1}
+  \parbox[t]{48pt}{\heiti\fontsize{14.05pt}{15pt}关键词\chinesecolon}
+  \parbox[t]{\linewidth - 52pt}{#1}
 }
 
 \newenvironment{englishabstract}{
+  \standardhead
   \fancyfoot[CE,CO]{\fontsize{9pt}{10.8pt}\selectfont\Roman{pseudopage}}
-  \pagenumbering{Roman}
   \ifchinesebook{
     \pdfbookmark{英文摘要}{englishabstract}
   }{
     \pdfbookmark{English Abstract}{englishabstract}
   }
-  \chapter*{\bfseries ABSTRACT}
-    \thispagestyle{plain}
-    \addcontentsline{toc}{chapter}{ABSTRACT}
-    \markboth{ABSTRACT}{ABSTRACT}
-    % \fancyhead[C]{\fontsize{10.5pt}{12.6pt}\selectfont ABSTRACT}
-}{}
+  \chapterb*{Abstract}
+  \addcontentsline{toc}{chapter}{Abstract}
+  \markboth{Abstract}{Abstract}
+}{\checkoddpage
+  \ifoddpage
+      \blankpage
+    \else
+      \newpage
+    \fi}
 
 \newcommand{\englishkeyword}[1]{
-  \vspace{\baselineskip}
+  \vspace{0.5\baselineskip}
   \noindent
-  \parbox[t]{3cm}{\textbf{KEY WORDS:}}
-  \parbox[t]{\linewidth - 3.2cm}{#1}
+  \parbox[t]{2.5cm}{\fontsize{14.05pt}{15pt}\selectfont Keywords:}
+  \parbox[t]{\linewidth - 2.6cm}{\fontsize{12.05pt}{12.05pt}#1}
 }
 
 \AddEverypageHook{\addtocontents{toc}{
@@ -336,8 +350,16 @@
 \cftsetindents{subsection}{44pt}{31pt}
 \cftsetindents{subsubsection}{76pt}{41pt}
 
+
+\setlength{\cftchapnumwidth}{\cftsecnumwidth-8pt}
+\setlength{\cftsecindent}{0pt}
+\setlength{\cftsubsecindent}{0pt}
+
+
 \renewcommand{\cfttoctitlefont}{\fontsize{15pt}{15pt}\selectfont\strong}
-\renewcommand\cftchapfont{\strong}
+%目录章节加粗
+%\renewcommand\cftchapfont{\strong}
+\renewcommand\cftchapfont{}
 
 \newcommand{\zh@thetitle}{\chinesespace}
 \newcommand{\zh@theauthor}{\chinesespace}
@@ -356,6 +378,7 @@
 \newcommand{\en@adminclass}{\chinesespace}
 
 \newcommand{\thestudentnumber}{\chinesespace}
+\newcommand{\thesubmitdate}{\chinesespace}
 
 \renewcommand{\title}[2]{
   \renewcommand{\zh@thetitle}{#1}
@@ -398,6 +421,10 @@
   \renewcommand{\thestudentnumber}{#1}
 }
 
+\newcommand{\submitdate}[1]{
+  \renewcommand{\thesubmitdate}{#1}
+}
+
 \renewcommand{\strong}{\heiti}
 \DeclareOption{english} {
   \newcommand{\englishbook}{}
@@ -413,7 +440,7 @@
 \DeclareOption{bachelor}{
   \def\chinesedegreename{本科}
   \def\englishdegreename{Bachelor}
-  \def\chinesebooktitle{毕业设计（论文）}
+  \def\chinesebooktitle{本科毕业设计（论文）}
   \def\englishbooktitle{Bachelor Thesis}
   \def\display@englishheader{Bachelor Thesis of North China Electric Power University}
 }
@@ -466,6 +493,8 @@
   \renewcommand{\listfigurename}{图目录}
   \renewcommand{\listtablename}{表目录}
 }{}
+
+
 
 \pretocmd{\listoffigures}{
     \newpage
@@ -612,7 +641,12 @@
 
 \ifbachelor{}{\thetitlepage}
 
-\newpage
+\checkoddpage
+\ifoddpage
+  \blankpage
+\else
+  \newpage
+\fi
 \setcounter{page}{0}
 \setcounter{pseudopage}{0}
 \setlength{\extrarowheight}{2pt}
@@ -623,7 +657,7 @@
 \setlength{\extrarowheight}{9pt}
 \pdfbookmark{封面}{cover}
 \begin{center}
-\includegraphics[height=2 cm]{Thesis_Materials/Univ_ICON.png}\\[1.2cm]
+\includegraphics[height=1.8 cm]{Thesis_Materials/Univ_ICON.png}\\[1.2cm]
 
 \ifbachelor{\fontsize{37pt}{37pt}\selectfont{\selectfont\bfseries 毕\ 业\ 设\ 计(论文)} \\[3cm]}{\fontsize{42pt}{42pt}\selectfont\chinesebooktitle \\[4cm]}
 
@@ -646,15 +680,23 @@
 指导教师 & \zh@theadvisor \\
 \end{tabular}\\[4.2cm]
 
-\fontsize{18pt}{18pt}\selectfont{\bfseries\zhtoday}\\
+%\fontsize{18pt}{18pt}\selectfont{\bfseries\zhtoday}\\
+\fontsize{18pt}{18pt}\selectfont{\bfseries\thesubmitdate}\\
 \end{center}
 
 \ifbachelor{}{\thetitlepage}
 
-\newpage
+\checkoddpage
+\ifoddpage
+  \blankpage
+\else
+  \newpage
+\fi
 \setcounter{page}{0}
 \setcounter{pseudopage}{0}
 \setlength{\extrarowheight}{2pt}
+
+
 }
 
 \newcommand\chaptera{\if@openright\cleardoublepage\else\clearpage\fi
@@ -662,10 +704,18 @@
 \global\@topnum\z@
 \@afterindentfalse
 {\centering
-\fontsize{27pt}{27pt}\selectfont
+\fontsize{24.1pt}{24.1pt}\heiti\selectfont
 \zh@thetitle\\[25pt]}
 \secdef\@chapter\@schapter}
 
+\newcommand\chapterb{\if@openright\cleardoublepage\else\clearpage\fi
+\thispagestyle{plain}%
+\global\@topnum\z@
+\@afterindentfalse
+{\centering
+\fontsize{24.1pt}{20pt}\selectfont
+\en@thetitle\\[20pt]}
+\secdef\@chapter\@schapter}
 
 \newcommand{\thetitlepage}{
   \newpage
@@ -836,8 +886,8 @@ School: & \en@theschool \\
 }
 
 \pretocmd{\tableofcontents}{
-      \fancyhead{}
-    \thispagestyle{plain}
+  \thispagestyle{plain}
+  \standardhead
   \ifchinesebook{
     \pdfbookmark{目录}{toc}
   }{
@@ -879,7 +929,8 @@ School: & \en@theschool \\
 \newcommand{\thesisappendix}{
   \newpage
   \appendix
-  \ifchinesebook{}{\addtocontents{toc}{\protect\addtolength{\cftchapnumwidth}{12pt}}}
+  %修改目录项对齐%多次使用会产生bug
+  \ifchinesebook{\addtocontents{toc}{\protect\addtolength{\cftchapnumwidth}{2.5em}}}{\addtocontents{toc}{\protect\addtolength{\cftchapnumwidth}{12pt}}}
   \addtocontents{toc}{\protect\setcounter{tocdepth}{2}}
   \titleformat{\chapter}[block]
     {\centering\fontsize{15pt}{15pt}\selectfont\strong\thispagestyle{fancy}}{\thechapter}{7.5pt}{}
@@ -948,8 +999,8 @@ School: & \en@theschool \\
 }
 
 \newcommand{\thesistranslationoriginal}{
-  \chapter*{\translation@originaltitle}
   \addtocontents{toc}{\protect\setcounter{tocdepth}{0}}
+%   \chapter*{\translation@originaltitle}
   \renewcommand\thesection{\arabic{section}}
     \setcounter{section}{0}
     \addcontentsline{toc}{chapter}{\translation@originaltitle}
@@ -965,7 +1016,11 @@ School: & \en@theschool \\
 
 \newcommand{\thesistranslationchinese}{
   \addtocontents{toc}{\protect\setcounter{tocdepth}{0}}
-  \chapter*{\translation@chinesetitle}
+  %\chapter*{\translation@chinesetitle}
+  \setcounter{chapter}{1}
+  \pagestyle{empty}
+  
+  \setcounter{page}{1}
   \renewcommand\thesection{\arabic{section}}
     \setcounter{section}{0}
     \addcontentsline{toc}{chapter}{\translation@chinesetitle}
@@ -992,8 +1047,9 @@ School: & \en@theschool \\
 
 \newenvironment{thesisbibliography}{
   \begin{thebibliography}{lo}
+    
     \interlinepenalty=10000
-    \begin{spacing}{1.2}
+    \begin{spacing}{1}
     \thispagestyle{fancy}
     \small
 }{
@@ -1005,7 +1061,7 @@ School: & \en@theschool \\
 \pretocmd{\bibliography}{
   \thispagestyle{fancy}
   \interlinepenalty=10000
-  \begin{spacing}{1.4}
+  \begin{spacing}{1}
 }{}{}
 
 \apptocmd{\bibliography}{
@@ -1109,5 +1165,5 @@ School: & \en@theschool \\
   \setlength{\belowdisplayshortskip}{8pt}
   \setlength{\abovedisplayshortskip}{8pt}
 }
-
+%\cftsetpnumwidth{0pt}
 \endinput
