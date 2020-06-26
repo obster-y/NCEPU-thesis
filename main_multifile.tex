@@ -3,23 +3,25 @@
 \documentclass[bachelor]{NCEPU-thesis}
 
 %fill the each item to generate cover
-\title{基尔霍夫定律的研究基尔霍夫定律的研究基尔霍夫定律的}{test}
+\title{基尔霍夫定律的研究基尔霍夫定律的研究基尔霍夫定律的}{English Title and English Title and English Title}
 \author{姓名1}{Test1}
-\advisor{姓名2\chinesespace 副教授}{Vice Dr. Name 2}
+\advisor{姓名2\chinesespace 副教授}{Vice Professor Name 2}
 \school{电力工程系}{School of Electrical Engineering}
 \major{电气工程及其自动化(卓工)}{EE}
 \studentnumber{201601XXXXXX}
 \adminclass{电气16XX班}{}
-
+% Put the submit date
+\submitdate{二〇二〇年六月}
 % if you require another packages, list them here
+%\usepackage{}
 
 \begin{document}
 
 % generate cover: for Beijing campus style, use \makecoverpk, 
 % for Baoding campus style, use \makecoverbd
-
+%\makecoverpk
 \makecoverbd
-\makecoverpk
+
 % The folders Main_Spine/ and Main_MISC/ have the related files
 
 % input abstract
@@ -50,7 +52,9 @@
 
 
 % input translation files
-\input{Main_MISC/translate_original}
 \input{Main_MISC/translate_chinese}
+\input{Main_MISC/translate_original}
 
+%%%%%%%%%%%%%%%%%%
+\cleardoublepage
 \end{document}
