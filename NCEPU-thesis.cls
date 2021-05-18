@@ -18,7 +18,11 @@
 
 \ProvidesClass{NCEPU-thesis}
 
-\LoadClass[12pt, openright, oneside]{book}
+\DeclareOption*{%
+    \PassOptionsToClass{\CurrentOption}{book}
+}
+\ProcessOptions\relax
+\LoadClass[12pt, openright]{book}
 
 \RequirePackage{ifxetex}
 \RequireXeTeX
@@ -70,15 +74,16 @@
   \newfontfamily{\songti@letter}{Songti SC}
   \setallmainfonts{Times New Roman}
 \else
-  \setCJKmainfont[AutoFakeBold=true]{fzsong.ttf}
-  \newCJKfontfamily{\heiti}{fzhei.ttf}
-  \newfontfamily{\heiti@letter}{fzhei.ttf}
-  \newCJKfontfamily{\songti}{fzsong.ttf}
-  \newfontfamily{\songti@letter}{fzsong.ttf}
+  \setCJKmainfont[AutoFakeBold=true,Path=Thesis_Materials/Fonts/]{fzsong.ttf}
+  \newCJKfontfamily{\heiti}[Path=Thesis_Materials/Fonts/]{fzhei.ttf}
+  \newfontfamily{\heiti@letter}[Path=Thesis_Materials/Fonts/]{fzhei.ttf}
+  \newCJKfontfamily{\songti}[Path=Thesis_Materials/Fonts/]{fzsong.ttf}
+  \newfontfamily{\songti@letter}[Path=Thesis_Materials/Fonts/]{fzsong.ttf}
   \setallmainfonts[
     BoldFont=timesbd.ttf,
     ItalicFont=timesi.ttf,
     BoldItalicFont=timesbi.ttf,
+    Path=Thesis_Materials/Fonts/,
   ]{times.ttf}
 \fi
 \fi
@@ -283,14 +288,13 @@
   \chaptera*{\heiti{摘\chinesespace\chinesespace 要}}
   \addcontentsline{toc}{chapter}{摘\hspace{12pt}要}
   \markboth{摘要}{摘要}
-}{\if@twoside%
-  {\checkoddpage
+}{\if@twoside{
+  \checkoddpage
   \ifoddpage
       \blankpage
     \else
       \newpage
-    \fi}
-  \fi}
+    \fi}\fi}
 
 \newcommand{\chinesekeyword}[1]{
   \vspace{\baselineskip}
@@ -310,14 +314,13 @@
   \chapterb*{Abstract}
   \addcontentsline{toc}{chapter}{Abstract}
   \markboth{Abstract}{Abstract}
-}{\if@twoside%
-{\checkoddpage
-\ifoddpage
-    \blankpage
-  \else
-    \newpage
-  \fi}
-\fi}
+}{\if@twoside{
+    \checkoddpage
+    \ifoddpage
+        \blankpage
+      \else
+        \newpage
+      \fi}\fi}
 
 \newcommand{\englishkeyword}[1]{
   \vspace{0.5\baselineskip}
@@ -645,14 +648,15 @@
 
 \ifbachelor{}{\thetitlepage}
 
-\if@twoside%
-  {\checkoddpage
+\if@twoside{
+\checkoddpage
   \ifoddpage
-      \blankpage
-    \else
-      \newpage
-    \fi}
+    \blankpage
+  \else
+    \newpage
+  \fi}
 \fi
+
 \setcounter{page}{0}
 \setcounter{pseudopage}{0}
 \setlength{\extrarowheight}{2pt}
@@ -692,14 +696,15 @@
 
 \ifbachelor{}{\thetitlepage}
 
-\if@twoside%
-  {\checkoddpage
+\if@twoside{
+\checkoddpage
   \ifoddpage
-      \blankpage
-    \else
-      \newpage
-    \fi}
+    \blankpage
+  \else
+    \newpage
+  \fi}
 \fi
+
 \setcounter{page}{0}
 \setcounter{pseudopage}{0}
 \setlength{\extrarowheight}{2pt}
