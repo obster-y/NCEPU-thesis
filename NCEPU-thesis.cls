@@ -18,7 +18,7 @@
 
 \ProvidesClass{NCEPU-thesis}
 
-\LoadClass[12pt, openright, twoside]{book}
+\LoadClass[12pt, openright, oneside]{book}
 
 \RequirePackage{ifxetex}
 \RequireXeTeX
@@ -283,12 +283,14 @@
   \chaptera*{\heiti{摘\chinesespace\chinesespace 要}}
   \addcontentsline{toc}{chapter}{摘\hspace{12pt}要}
   \markboth{摘要}{摘要}
-}{\checkoddpage
+}{\if@twoside%
+  {\checkoddpage
   \ifoddpage
       \blankpage
     \else
       \newpage
     \fi}
+  \fi}
 
 \newcommand{\chinesekeyword}[1]{
   \vspace{\baselineskip}
@@ -308,12 +310,14 @@
   \chapterb*{Abstract}
   \addcontentsline{toc}{chapter}{Abstract}
   \markboth{Abstract}{Abstract}
-}{\checkoddpage
-  \ifoddpage
-      \blankpage
-    \else
-      \newpage
-    \fi}
+}{\if@twoside%
+{\checkoddpage
+\ifoddpage
+    \blankpage
+  \else
+    \newpage
+  \fi}
+\fi}
 
 \newcommand{\englishkeyword}[1]{
   \vspace{0.5\baselineskip}
@@ -619,7 +623,7 @@
 
 \begin{tabular}{lp{6.6in}p{32pt}}
     \fontsize{25pt}{25pt}\selectfont{\bfseries 题\chinesespace\  目 }& \chinesespace \ \multirow[t]{2}{11cm}{
-      \raggedright
+        \centering
         \kaiti\fontsize{24pt}{24pt}\selectfont
         \zh@thetitle
     } & \\
@@ -641,11 +645,13 @@
 
 \ifbachelor{}{\thetitlepage}
 
-\checkoddpage
-\ifoddpage
-  \blankpage
-\else
-  \newpage
+\if@twoside%
+  {\checkoddpage
+  \ifoddpage
+      \blankpage
+    \else
+      \newpage
+    \fi}
 \fi
 \setcounter{page}{0}
 \setcounter{pseudopage}{0}
@@ -663,7 +669,7 @@
 
 \begin{tabular}{lp{6.6in}p{32pt}}
 \fontsize{25pt}{25pt}\selectfont{ 题\chinesespace\  目 }& \chinesespace \ \multirow[t]{2}{12cm}{
-  \raggedright
+    \centering
         \fontsize{25pt}{25pt}\selectfont
         \zh@thetitle
 } & \\
@@ -686,11 +692,13 @@
 
 \ifbachelor{}{\thetitlepage}
 
-\checkoddpage
-\ifoddpage
-  \blankpage
-\else
-  \newpage
+\if@twoside%
+  {\checkoddpage
+  \ifoddpage
+      \blankpage
+    \else
+      \newpage
+    \fi}
 \fi
 \setcounter{page}{0}
 \setcounter{pseudopage}{0}
