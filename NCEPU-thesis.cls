@@ -215,7 +215,7 @@
   {\fontsize{12pt}{12pt}\selectfont\strong}
   {\thesubsubsection}{6pt}{}
 
-\RequirePackage[hang, perpage]{footmisc}
+\RequirePackage[bottom, perpage]{footmisc}
 \addtolength{\footnotesep}{0pt}
 \setlength{\footnotemargin}{13.5pt}
 
