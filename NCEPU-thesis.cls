@@ -275,6 +275,9 @@
   \newpage
 }
 
+\newcommand\pagecheck{{\if@twoside{\checkoddpage
+\ifoddpage\blankpage\else\newpage\fi}
+\else\newpage\fi}}
 
 \newenvironment{chineseabstract}{%
   \standardhead
@@ -288,13 +291,7 @@
   \chaptera*{\heiti{摘\chinesespace\chinesespace 要}}
   \addcontentsline{toc}{chapter}{摘\hspace{12pt}要}
   \markboth{摘要}{摘要}
-}{\if@twoside{
-  \checkoddpage
-  \ifoddpage
-      \blankpage
-    \else
-      \newpage
-    \fi}\fi}
+}{\pagecheck}
 
 \newcommand{\chinesekeyword}[1]{
   \vspace{\baselineskip}
@@ -314,13 +311,7 @@
   \chapterb*{Abstract}
   \addcontentsline{toc}{chapter}{Abstract}
   \markboth{Abstract}{Abstract}
-}{\if@twoside{
-    \checkoddpage
-    \ifoddpage
-        \blankpage
-      \else
-        \newpage
-      \fi}\fi}
+}{\pagecheck}
 
 \newcommand{\englishkeyword}[1]{
   \vspace{0.5\baselineskip}
