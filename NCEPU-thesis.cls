@@ -215,7 +215,7 @@
   {\fontsize{12pt}{12pt}\selectfont\strong}
   {\thesubsubsection}{6pt}{}
 
-\RequirePackage[hang, perpage]{footmisc}
+\RequirePackage[bottom, perpage]{footmisc}
 \addtolength{\footnotesep}{0pt}
 \setlength{\footnotemargin}{13.5pt}
 
@@ -673,7 +673,7 @@
 
 \begin{tabular}{lp{6.6in}p{32pt}}
 \fontsize{25pt}{25pt}\selectfont{ 题\chinesespace\  目 }& \chinesespace \ \multirow[t]{2}{12cm}{
-    \centering
+        \raggedright
         \fontsize{25pt}{25pt}\selectfont
         \zh@thetitle
 } & \\
