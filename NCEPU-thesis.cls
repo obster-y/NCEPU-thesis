@@ -157,7 +157,7 @@
 \pagestyle{fancy}
 \linespread{1.391}
 \setlength\parindent{24pt}
-\titlespacing{\chapter}{0pt}{0pt}{18pt}
+\titlespacing{\chapter}{0pt}{-16pt}{18pt}
 \titlespacing{\section}{0pt}{18pt}{6pt}
 \titlespacing{\subsection}{0pt}{12pt}{6pt}
 \titlespacing{\subsubsection}{0pt}{12pt}{6pt}
