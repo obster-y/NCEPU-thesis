@@ -639,14 +639,7 @@
 
 \ifbachelor{}{\thetitlepage}
 
-\if@twoside{
-\checkoddpage
-  \ifoddpage
-    \blankpage
-  \else
-    \newpage
-  \fi}
-\fi
+\pagecheck
 
 \setcounter{page}{0}
 \setcounter{pseudopage}{0}
@@ -684,14 +677,7 @@
 
 \ifbachelor{}{\thetitlepage}
 
-\if@twoside{
-\checkoddpage
-  \ifoddpage
-    \blankpage
-  \else
-    \newpage
-  \fi}
-\fi
+\pagecheck
 
 \setcounter{page}{0}
 \setcounter{pseudopage}{0}
@@ -890,6 +876,7 @@ School: & \en@theschool \\
 \pretocmd{\tableofcontents}{
   \thispagestyle{plain}
   \standardhead
+  \fancyfoot{}
   \ifchinesebook{
     \pdfbookmark{目录}{toc}
   }{
