@@ -663,11 +663,8 @@
 \ifbachelor{\fontsize{37pt}{37pt}\selectfont{\selectfont\bfseries 毕\ 业\ 设\ 计(论文)} \\[3cm]}{\fontsize{42pt}{42pt}\selectfont\chinesebooktitle \\[4cm]}
 
 \begin{tabular}{lp{6.6in}p{32pt}}
-\fontsize{25pt}{25pt}\selectfont{ 题\chinesespace\  目 }& \chinesespace \ \multirow[t]{2}{12cm}{
-        \raggedright
-        \fontsize{25pt}{25pt}\selectfont
-        \zh@thetitle
-} & \\
+  \fontsize{25pt}{25pt}\selectfont{ 题\chinesespace\  目 }& \chinesespace \ 
+  \parbox[t]{12cm}{\fontsize{25pt}{25pt}\selectfont \zh@thetitle} & \\
 \end{tabular} \\[4cm]
 
 
