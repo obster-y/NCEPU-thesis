@@ -876,6 +876,7 @@ School: & \en@theschool \\
 
 \newcommand{\standardhead}{
   \fancyhf{}
+  \renewcommand{\headrulewidth}{0.7pt}% header rule
   \ifchinesebook{
     \fancyhead[CE]{\fontsize{10.5pt}{12.6pt}\selectfont 华北电力大学\chinesebooktitle}
     \fancyhead[CO]{\fontsize{10.5pt}{12.6pt}\selectfont 华北电力大学\chinesebooktitle}
