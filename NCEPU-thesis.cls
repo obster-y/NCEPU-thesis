@@ -157,7 +157,7 @@
 \pagestyle{fancy}
 \linespread{1.391}
 \setlength\parindent{24pt}
-\titlespacing{\chapter}{0pt}{0pt}{18pt}
+\titlespacing{\chapter}{0pt}{-16pt}{18pt}
 \titlespacing{\section}{0pt}{18pt}{6pt}
 \titlespacing{\subsection}{0pt}{12pt}{6pt}
 \titlespacing{\subsubsection}{0pt}{12pt}{6pt}
@@ -639,14 +639,7 @@
 
 \ifbachelor{}{\thetitlepage}
 
-\if@twoside{
-\checkoddpage
-  \ifoddpage
-    \blankpage
-  \else
-    \newpage
-  \fi}
-\fi
+\pagecheck
 
 \setcounter{page}{0}
 \setcounter{pseudopage}{0}
@@ -663,11 +656,8 @@
 \ifbachelor{\fontsize{37pt}{37pt}\selectfont{\selectfont\bfseries 毕\ 业\ 设\ 计(论文)} \\[3cm]}{\fontsize{42pt}{42pt}\selectfont\chinesebooktitle \\[4cm]}
 
 \begin{tabular}{lp{6.6in}p{32pt}}
-\fontsize{25pt}{25pt}\selectfont{ 题\chinesespace\  目 }& \chinesespace \ \multirow[t]{2}{12cm}{
-        \raggedright
-        \fontsize{25pt}{25pt}\selectfont
-        \zh@thetitle
-} & \\
+  \fontsize{25pt}{25pt}\selectfont{ 题\chinesespace\  目 }& \chinesespace \ 
+  \parbox[t]{12cm}{\fontsize{25pt}{25pt}\selectfont \zh@thetitle} & \\
 \end{tabular} \\[4cm]
 
 
@@ -687,14 +677,7 @@
 
 \ifbachelor{}{\thetitlepage}
 
-\if@twoside{
-\checkoddpage
-  \ifoddpage
-    \blankpage
-  \else
-    \newpage
-  \fi}
-\fi
+\pagecheck
 
 \setcounter{page}{0}
 \setcounter{pseudopage}{0}
@@ -879,6 +862,7 @@ School: & \en@theschool \\
 
 \newcommand{\standardhead}{
   \fancyhf{}
+  \renewcommand{\headrulewidth}{0.7pt}% header rule
   \ifchinesebook{
     \fancyhead[CE]{\fontsize{10.5pt}{12.6pt}\selectfont 华北电力大学\chinesebooktitle}
     \fancyhead[CO]{\fontsize{10.5pt}{12.6pt}\selectfont 华北电力大学\chinesebooktitle}
@@ -892,6 +876,7 @@ School: & \en@theschool \\
 \pretocmd{\tableofcontents}{
   \thispagestyle{plain}
   \standardhead
+  \fancyfoot{}
   \ifchinesebook{
     \pdfbookmark{目录}{toc}
   }{
