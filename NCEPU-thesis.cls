@@ -74,17 +74,14 @@
   \newfontfamily{\songti@letter}{Songti SC}
   \setallmainfonts{Times New Roman}
 \else
-  \setCJKmainfont[AutoFakeBold=true,Path=Thesis_Materials/Fonts/]{fzsong.ttf}
-  \newCJKfontfamily{\heiti}[Path=Thesis_Materials/Fonts/]{fzhei.ttf}
-  \newfontfamily{\heiti@letter}[Path=Thesis_Materials/Fonts/]{fzhei.ttf}
-  \newCJKfontfamily{\songti}[Path=Thesis_Materials/Fonts/]{fzsong.ttf}
-  \newfontfamily{\songti@letter}[Path=Thesis_Materials/Fonts/]{fzsong.ttf}
-  \setallmainfonts[
-    BoldFont=timesbd.ttf,
-    ItalicFont=timesi.ttf,
-    BoldItalicFont=timesbi.ttf,
-    Path=Thesis_Materials/Fonts/,
-  ]{times.ttf}
+  \setCJKmainfont[AutoFakeBold=true]{SimSun}
+  \newCJKfontfamily{\heiti}{SimHei}
+  \newfontfamily{\heiti@letter}{SimHei}
+  \newCJKfontfamily{\kaiti}[AutoFakeBold=true]{KaiTi}
+  \newfontfamily{\kaiti@letter}{KaiTi}
+  \newCJKfontfamily{\songti}{SimSun}
+  \newfontfamily{\songti@letter}{SimSun}
+  \setallmainfonts{Times New Roman}
 \fi
 \fi
 
